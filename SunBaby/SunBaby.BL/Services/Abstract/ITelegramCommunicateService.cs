@@ -7,6 +7,6 @@ namespace SunBaby.BL.Services.Abstract
     {
         Task<User> GetAboutMeAsync();
 
-        void SpotCommand(Message message);
+        Task SpotCommand(Message message);
     }
 }
