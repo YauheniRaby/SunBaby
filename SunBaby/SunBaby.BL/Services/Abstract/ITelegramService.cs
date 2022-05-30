@@ -5,6 +5,6 @@ namespace SunBaby.BL.Services.Abstract
 {
     public interface ITelegramService
     {
-        Task<User> GetAboutMe();
+        Task<User> GetAboutMeAsync();
     }
 }
