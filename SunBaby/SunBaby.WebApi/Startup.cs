@@ -23,6 +23,7 @@ namespace SunBaby.WebApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.Configure<MessageConfiguration>(Configuration.GetSection(nameof(MessageConfiguration)));
             services.Configure<CommandConfiguration>(Configuration.GetSection(nameof(CommandConfiguration)));
             services.Configure<RouteOptions>(options => options.LowercaseUrls = true);
             services.AddControllers();
