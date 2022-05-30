@@ -14,7 +14,7 @@ namespace SunBaby.BL.Services
             _botClient = botClient;
         }
 
-        public Task<User> GetAboutMe()
+        public Task<User> GetAboutMeAsync()
         {
             return _botClient.GetMeAsync();            
         }
