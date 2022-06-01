@@ -1,8 +1,9 @@
-﻿using System;
+﻿using SunBaby.DA.Models.Abstract;
+using System;
 
 namespace SunBaby.DA.Models
 {
-    public class BaseUser
+    public class BaseUser : IDataModel
     {
         public Guid Id { get; set; }
 
@@ -18,7 +19,7 @@ namespace SunBaby.DA.Models
 
         public DateTime PassportDate { get; set; }
 
-        public int Address { get; set; }
+        public string Address { get; set; }
 
         public string Phone { get; set; }
     }

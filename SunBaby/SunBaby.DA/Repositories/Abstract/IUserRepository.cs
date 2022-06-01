@@ -2,7 +2,7 @@
 
 namespace SunBaby.DA.Repositories.Abstract
 {
-    public interface IToyRepository : IBaseRepository<Toy>
+    public interface IUserRepository : IBaseRepository<User>
     {
 
     }

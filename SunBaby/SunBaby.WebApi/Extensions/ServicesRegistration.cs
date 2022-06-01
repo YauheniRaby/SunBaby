@@ -10,6 +10,8 @@ namespace SunBaby.WebApi.Extensions
         {
             services.AddSingleton<ITelegramCommunicateService, TelegramCommunicateService>();
             services.AddSingleton<IToyService, ToyService>();
+            services.AddSingleton<IOrderService, OrderService>();
+            services.AddSingleton<IUserService, UserService>();
         }
     }
 }

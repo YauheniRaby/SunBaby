@@ -1,8 +1,9 @@
-﻿using System;
+﻿using SunBaby.DA.Models.Abstract;
+using System;
 
 namespace SunBaby.DA.Models
 {
-    public class BaseToy
+    public class BaseToy : IDataModel
     {
         public Guid Id { get; set; }
 

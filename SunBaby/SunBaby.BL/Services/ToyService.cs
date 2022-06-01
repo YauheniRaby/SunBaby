@@ -7,7 +7,7 @@ namespace SunBaby.BL.Services
 {
     public class ToyService : IToyService
     {
-        private IToyRepository _toyRepository;
+        private readonly IToyRepository _toyRepository;
 
         public ToyService(IToyRepository toyRepository)
         {

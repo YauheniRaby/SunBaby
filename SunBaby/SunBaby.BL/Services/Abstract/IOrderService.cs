@@ -1,7 +1,7 @@
 ﻿namespace SunBaby.BL.Services.Abstract
 {
-    public interface IUserService
+    public interface IToyService
     {
-        void AddUser();
+        void AddToy();
     }
 }

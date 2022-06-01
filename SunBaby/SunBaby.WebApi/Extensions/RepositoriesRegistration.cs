@@ -9,6 +9,8 @@ namespace SunBaby.WebApi.Extensions
         public static void AddRepositories(this IServiceCollection services)
         {
             services.AddSingleton<IToyRepository, ToyRepository>();
+            services.AddSingleton<IOrderRepository, OrderRepository>();
+            services.AddSingleton<IUserRepository, UserRepository>();
         }
     }
 }

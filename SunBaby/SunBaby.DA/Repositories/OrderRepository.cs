@@ -5,9 +5,9 @@ using SunBaby.DA.Repositories.Abstract;
 
 namespace SunBaby.DA.Repositories
 {
-    public class UserRepository : BaseRepository<User>, IUserRepository
+    public class OrderRepository : BaseRepository<Order>, IOrderRepository
     {
-        public UserRepository(IOptions<MongoSettings> options)
+        public OrderRepository(IOptions<MongoSettings> options)
            : base(options)
         {
         }

@@ -5,9 +5,9 @@ using SunBaby.DA.Repositories.Abstract;
 
 namespace SunBaby.DA.Repositories
 {
-    public class UserRepository : BaseRepository<User>, IUserRepository
+    public class ToyRepository : BaseRepository<Toy>, IToyRepository
     {
-        public UserRepository(IOptions<MongoSettings> options)
+        public ToyRepository(IOptions<MongoSettings> options)
            : base(options)
         {
         }

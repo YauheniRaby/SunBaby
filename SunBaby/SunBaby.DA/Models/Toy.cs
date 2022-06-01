@@ -1,9 +1,6 @@
-﻿using SunBaby.DA.Models.Abstract;
-using System;
-
-namespace SunBaby.DA.Models
+﻿namespace SunBaby.DA.Models
 {
-    public class Toy : BaseToy, IDataModel
+    public class Toy : BaseToy
     {
         public double Tarif1 { get; set; }
 

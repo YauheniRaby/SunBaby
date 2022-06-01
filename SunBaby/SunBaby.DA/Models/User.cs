@@ -1,6 +1,6 @@
 ﻿namespace SunBaby.DA.Models
 {
-    public class UserShort
+    public class UserShort : BaseUser
     {
         
     }
