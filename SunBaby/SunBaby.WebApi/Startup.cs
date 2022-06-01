@@ -1,11 +1,10 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Routing;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
-using SunBaby.BL.Configuration;
+using MongoDB.Bson;
 using SunBaby.WebApi.Extensions;
 using Telegram.Bot;
 
@@ -23,18 +22,19 @@ namespace SunBaby.WebApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.Configure<MessageConfiguration>(Configuration.GetSection(nameof(MessageConfiguration)));
-            services.Configure<CommandConfiguration>(Configuration.GetSection(nameof(CommandConfiguration)));
-            services.Configure<RouteOptions>(options => options.LowercaseUrls = true);
-            services.AddControllers();
+            BsonDefaults.GuidRepresentation = GuidRepresentation.Standard;
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "SunBaby.WebApi", Version = "v1" });
             });
 
+            services.AddControllers();
             services.AddServices();
+            services.AddRepositories();
+            services.FillConfiguration(Configuration);
 
-            var botToken = Configuration["Bot:Token"];
+            var botToken = Configuration.GetSection("Bot:Token").Value;
             services.AddHttpClient("telegram")
             .AddTypedClient<ITelegramBotClient>(client =>
             {

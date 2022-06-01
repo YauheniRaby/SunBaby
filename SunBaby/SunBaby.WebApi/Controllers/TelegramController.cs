@@ -13,11 +13,13 @@ namespace SunBaby.WebApi.Controllers
     {
         readonly ITelegramCommunicateService _telegramService;
         readonly IOptionsMonitor<CommandConfiguration> _commandConfiguration;
+        readonly IToyService _toyService;
 
-        public TelegramController(ITelegramCommunicateService telegramService, IOptionsMonitor<CommandConfiguration> commandConfiguration)
+        public TelegramController(ITelegramCommunicateService telegramService, IOptionsMonitor<CommandConfiguration> commandConfiguration, IToyService toyService )
         {
             _telegramService = telegramService;
             _commandConfiguration = commandConfiguration;
+            _toyService = toyService;
         }
 
         [HttpGet("about_me")]
@@ -31,6 +33,13 @@ namespace SunBaby.WebApi.Controllers
         public void Post([FromBody] Update update)
         {
             _telegramService.SpotCommand(update.Message);
+        }
+
+        [HttpGet("test")]
+        public ActionResult TestAsync()
+        {
+            _toyService.AddToy();
+            return Ok();
         }
     }
 }

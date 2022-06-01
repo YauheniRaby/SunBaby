@@ -9,6 +9,7 @@ namespace SunBaby.WebApi.Extensions
         public static void AddServices(this IServiceCollection services)
         {
             services.AddSingleton<ITelegramCommunicateService, TelegramCommunicateService>();
+            services.AddSingleton<IToyService, ToyService>();
         }
     }
 }
