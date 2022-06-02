@@ -1,7 +1,8 @@
 ﻿using SunBaby.BL.Services.Abstract;
-using SunBaby.DA.Models;
 using SunBaby.DA.Repositories.Abstract;
 using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace SunBaby.BL.Services
 {
@@ -14,21 +15,9 @@ namespace SunBaby.BL.Services
             _toyRepository = toyRepository;
         }
 
-        public void AddToy()
+        public Task<IEnumerable<string>> GetCategoriesListAsync()
         {
-            var toy = new Toy()
-            {
-                Description = "TestTest",
-                Id = Guid.NewGuid(),
-                Name = "TestName",
-                Price = 100,
-                Tarif1 = 1,
-                Tarif2 = 2,
-                Tarif3 = 3,
-                Tarif4 = 4,
-                Type = "TestType"
-            }; 
-            _toyRepository.CreateAsync(toy);
+            return _toyRepository.GetCategoriesListAsync();
         }
     }
 }

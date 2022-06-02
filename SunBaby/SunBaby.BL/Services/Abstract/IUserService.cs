@@ -1,7 +1,9 @@
-﻿namespace SunBaby.BL.Services.Abstract
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
+
+namespace SunBaby.BL.Services.Abstract
 {
-    public interface IOrderService
+    public interface IUserService
     {
-        void AddOrder();
     }
 }

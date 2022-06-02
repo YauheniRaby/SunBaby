@@ -1,7 +1,6 @@
 ﻿namespace SunBaby.BL.Services.Abstract
 {
-    public interface IToyService
+    public interface IOrderService
     {
-        void AddToy();
     }
 }

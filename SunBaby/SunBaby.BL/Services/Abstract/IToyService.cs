@@ -1,7 +1,10 @@
-﻿namespace SunBaby.BL.Services.Abstract
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
+
+namespace SunBaby.BL.Services.Abstract
 {
-    public interface IUserService
+    public interface IToyService
     {
-        void AddUser();
+        Task<IEnumerable<string>> GetCategoriesListAsync();
     }
 }

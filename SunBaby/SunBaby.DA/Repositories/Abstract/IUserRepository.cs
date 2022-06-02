@@ -4,6 +4,6 @@ namespace SunBaby.DA.Repositories.Abstract
 {
     public interface IUserRepository : IBaseRepository<User>
     {
-
+        
     }
 }

@@ -1,15 +1,16 @@
 ﻿using Microsoft.Extensions.Options;
+using MongoDB.Driver;
 using SunBaby.DA.Configuration;
 using SunBaby.DA.Models;
 using SunBaby.DA.Repositories.Abstract;
 
 namespace SunBaby.DA.Repositories
 {
-    public class ToyRepository : BaseRepository<Toy>, IToyRepository
+    public class UserRepository : BaseRepository<User>, IUserRepository
     {
-        public ToyRepository(IOptions<MongoSettings> options)
+        public UserRepository(IOptions<MongoSettings> options)
            : base(options)
         {
-        }
+        }                
     }
 }
