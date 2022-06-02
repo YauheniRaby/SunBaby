@@ -13,6 +13,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\SunBaby.BL\SunBaby.BL.csproj" />
+    <ProjectReference Include="..\SunBaby.DA\SunBaby.DA.csproj" />
   </ItemGroup>
 
 </Project>
