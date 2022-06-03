@@ -1,4 +1,5 @@
 ﻿using SunBaby.BL.Services.Abstract;
+using SunBaby.DA.Models;
 using SunBaby.DA.Repositories.Abstract;
 using System;
 using System.Collections.Generic;
@@ -18,6 +19,11 @@ namespace SunBaby.BL.Services
         public Task<IEnumerable<string>> GetCategoriesListAsync()
         {
             return _toyRepository.GetCategoriesListAsync();
+        }
+
+        public Task<IEnumerable<Toy>> GetToysByCategoryAsync(string categoryName)
+        {
+            return _toyRepository.GetToysByAsync(categoryName);
         }
     }
 }

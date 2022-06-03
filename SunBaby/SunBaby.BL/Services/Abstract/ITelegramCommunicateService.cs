@@ -5,8 +5,6 @@ namespace SunBaby.BL.Services.Abstract
 {
     public interface ITelegramCommunicateService
     {
-        Task<User> GetAboutMeAsync();
-
-        Task SpotCommand(Message message);
+        Task SpotCommand(Update update);
     }
 }

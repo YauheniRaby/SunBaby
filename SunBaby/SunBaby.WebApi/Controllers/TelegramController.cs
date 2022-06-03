@@ -16,17 +16,17 @@ namespace SunBaby.WebApi.Controllers
             _telegramService = telegramService;            
         }
 
-        [HttpGet("about_me")]
-        public async Task<ActionResult<User>> GetAboutMeAsync()
-        {
-            return Ok(await _telegramService.GetAboutMeAsync());
-        }
+        //[HttpGet("about_me")]
+        //public async Task<ActionResult<User>> GetAboutMeAsync()
+        //{
+        //    return Ok(await _telegramService.GetAboutMeAsync());
+        //}
 
         [HttpPost]
         [ApiExplorerSettings(IgnoreApi = true)]
         public void Post([FromBody] Update update)
         {
-            _telegramService.SpotCommand(update.Message);
+            _telegramService.SpotCommand(update);
         }
     }
 }

@@ -10,6 +10,10 @@
 
         public string Categories { get; set; }
 
+        public string Category { get; set; }
+
         public string Toy { get; set; }
+
+        public string NewOrder { get; set; }
     }
 }

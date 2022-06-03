@@ -14,10 +14,18 @@ namespace SunBaby.DA.Repositories
            : base(options)
         {
         }
+
         public async Task<IEnumerable<string>> GetCategoriesListAsync()
         {
             var categoriesList = await GetCollection().DistinctAsync<string>(nameof(Toy.Type), _filterBuilder.Empty);
             return categoriesList.ToEnumerable();
+        }
+
+        public async Task<IEnumerable<Toy>> GetToysByAsync(string categoryName)
+        {
+            var filter = _filterBuilder.Eq(u => u.Type, categoryName);
+            var toys = await GetCollection().FindAsync(filter);
+            return toys.ToEnumerable();
         }
     }
 }

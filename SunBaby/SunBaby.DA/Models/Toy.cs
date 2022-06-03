@@ -8,6 +8,10 @@
 
         public double Tarif3 { get; set; }
 
-        public double Tarif4 { get; set; }        
+        public double Tarif4 { get; set; }    
+        
+        public string ImageLink { get; set; }
+
+        public string Link { get; set; }
     }
 }

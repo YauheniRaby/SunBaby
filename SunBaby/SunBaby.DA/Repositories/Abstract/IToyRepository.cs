@@ -7,5 +7,7 @@ namespace SunBaby.DA.Repositories.Abstract
     public interface IToyRepository : IBaseRepository<Toy>
     {
         Task<IEnumerable<string>> GetCategoriesListAsync();
+
+        Task<IEnumerable<Toy>> GetToysByAsync(string categoryName);
     }
 }
