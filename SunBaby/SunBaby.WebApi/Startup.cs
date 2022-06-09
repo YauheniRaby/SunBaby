@@ -2,10 +2,12 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.FileProviders;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using MongoDB.Bson;
 using SunBaby.WebApi.Extensions;
+using System.IO;
 using Telegram.Bot;
 
 namespace SunBaby.WebApi
@@ -32,6 +34,7 @@ namespace SunBaby.WebApi
             services.AddControllers();
             services.AddServices();
             services.AddRepositories();
+            services.AddMvc();
             services.FillConfiguration(Configuration);
 
             var botToken = Configuration.GetSection("Bot:Token").Value;
@@ -59,6 +62,14 @@ namespace SunBaby.WebApi
             app.UseRouting();
 
             app.UseAuthorization();
+
+            app.UseFileServer(new FileServerOptions
+            {
+                FileProvider = new PhysicalFileProvider(
+                    Path.Combine(Directory.GetCurrentDirectory(), Configuration.GetSection("AppConfiguration:FileServerPath").Value)),
+                RequestPath = Configuration.GetSection("AppConfiguration:FileServerUri").Value,
+                EnableDefaultFiles = true
+            });
 
             app.UseEndpoints(endpoints =>
             {
